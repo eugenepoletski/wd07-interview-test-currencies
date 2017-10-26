@@ -8,8 +8,8 @@ const api = {}
  * 
  * @return {Object} Mapped currencies rates
  */
-const fetchCurrenciesRates = () => {
-  return fetchCurrencies('http://localhost:8081/api/currencies/rates')
+const fetchCurrencies = () => {
+  return _fetchCurrencies('/api/currencies')
   .then( currenciesData => {
     // Throw exception when data was not provided
     if (!currenciesData) {
@@ -25,7 +25,7 @@ const fetchCurrenciesRates = () => {
  * @param {String} url our server api url
  * @return {String} Currencies data
  */
-const fetchCurrencies = url => {
+const _fetchCurrencies = url => {
   return fetch(url)
     .then(
       res => {
@@ -38,6 +38,6 @@ const fetchCurrencies = url => {
     )
 }
 
-api.fetchCurrenciesRates = fetchCurrenciesRates;
+api.fetchCurrencies = fetchCurrencies;
 
 export default api;

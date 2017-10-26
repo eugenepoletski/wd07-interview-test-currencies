@@ -1,14 +1,43 @@
-import actionTypes from './actionTypes';
+import actionTypes from './actionTypes'
 import {
-  testAction
-} from './index.js';
+  currenciesFetch,
+  currenciesReceive,
+  currenciesRequest,
+  uiSelectTab
+} from './index.js'
 
-describe('Actions', ()=> {
-  it('testAction() MUST create test action', () => {
-    expect( testAction() )
+describe('Actions MUST create actions properly', ()=> {
+  it('currenciesFetch()', () => {
+    expect( currenciesFetch() ).toBeInstanceOf(Function)
+  })
+
+  it('currenciesReceive()', () => {
+    const action = currenciesReceive({'1': {}})
+    
+    expect( action )
+    .toMatchObject({
+      type: actionTypes.CURRENCIES_RECEIVE,
+      payload: {
+        currencies: expect.any(Object),
+        lastUpdated: expect.any(Number)
+      }
+    })
+
+    expect( action.payload.lastUpdated ).not.toBe(0)
+  })
+
+  it('currenciesRequest()', () => {
+    expect( currenciesRequest() )
     .toEqual({
-      type: actionTypes.TEST_ACTION,
-      payload: 'test action'
-    });
-  });
-});
+      type: actionTypes.CURRENCIES_REQUEST
+    })
+  })
+
+  it('uiSelectTab()', () => {
+    expect( uiSelectTab('rates') )
+    .toEqual({
+      type: actionTypes.UI_SELECT_TAB,
+      payload: 'rates'
+    })
+  })
+})

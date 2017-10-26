@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 import './styles/main.scss';
+import CurrenciesContainer from './components/CurrenciesContainer/CurrenciesContainer'
 
 const App = props => {
   return (
-    <div>App</div>
+    <div>
+      <CurrenciesContainer />
+    </div>
   );
 }
 

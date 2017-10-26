@@ -18,7 +18,7 @@ const config = merge(
       },
       port: 8080,
       proxy: {
-        '/api': 'http://localhost:3000'
+        '/api/currencies': 'http://www.cbr.ru/scripts/XML_daily_eng.asp?'
       }
     },
     module: {

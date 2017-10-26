@@ -1,5 +1,7 @@
 const typeNames = [
-  'TEST_ACTION'
+  'CURRENCIES_RECEIVE',
+  'CURRENCIES_REQUEST',
+  'UI_SELECT_TAB'
 ];
 
 const actionTypes = {};

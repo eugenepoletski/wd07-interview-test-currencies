@@ -1,13 +1,11 @@
-import {} from '../actions/actionTypes';
-import { combineReducers } from 'redux';
+import {} from '../actions/actionTypes'
+import { combineReducers } from 'redux'
+import currencies from './currencies'
+import ui from './ui'
 
-const app = (state = {}, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-// const app = combineReducers({});
+const app = combineReducers({
+  currencies,
+  ui
+});
 
 export default app;

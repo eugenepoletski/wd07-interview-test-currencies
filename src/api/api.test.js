@@ -5,9 +5,9 @@ describe('API', () => {
     expect(api).toBeInstanceOf(Object)
   })
 
-  describe('method fetchCurrencyList()', () => {
+  describe('method fetchCurrencies()', () => {
     it('MUST be defined as a function', () => {
-      expect(api.fetchCurrenciesRates).toBeInstanceOf(Function)
+      expect(api.fetchCurrencies).toBeInstanceOf(Function)
     })
 
   })
