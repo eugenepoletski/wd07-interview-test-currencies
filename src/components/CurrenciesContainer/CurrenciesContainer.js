@@ -4,13 +4,14 @@ import Currencies from './Currencies'
 
 const mapStateToProps = state => {
   return {
-    currencies: state.currencies.byIds
+    currencies: state.currencies.byIds,
+    lastUpdated: state.currencies.lastUpdated
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    currenciesFetch: () => dispatch( currenciesFetch() )
+    fetchCurrenciesIfNeeded: () => dispatch( currenciesFetch() )
   }
 }
 

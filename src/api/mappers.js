@@ -19,7 +19,8 @@ export const mapCurrenciesRates = textData => {
       name: currency.Name._text,
       nominal: currency.Nominal._text,
       numCode: currency.NumCode._text,
-      value: Number( currency.Value._text.replace(',', '.') )
+      valueNum: Number( currency.Value._text.replace(',', '.') ),
+      valueChar: currency.Value._text
     }
   });
 

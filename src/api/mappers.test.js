@@ -29,14 +29,16 @@ describe('Mappers', () => {
         name: 'Australian Dollar',
         nominal: '1',
         numCode: '036',
-        value: 44.4434
+        valueNum: 44.4434,
+        valueChar: '44,4434'
       },
       R01020A: {
         charCode: 'AZN',
         name: 'Azerbaijan Manat',
         nominal: '1',
         numCode: '944',
-        value: 34.1315
+        valueNum: 34.1315,
+        valueChar: '34,1315'
       }
     })
   })
