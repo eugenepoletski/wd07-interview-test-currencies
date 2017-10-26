@@ -24,3 +24,9 @@ if (module.hot) {
     );
   });
 }
+
+import api from './api/api';
+api.fetchCurrenciesRates()
+  .then(res => {
+    console.log(res)
+  });
