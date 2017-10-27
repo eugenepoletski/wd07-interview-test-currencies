@@ -13,8 +13,8 @@ describe('Action types MUST BE defined and have corresponding value of type {str
     expect( actionTypes.CURRENCIES_REQUEST ).toBe('CURRENCIES_REQUEST')
   })
 
-  it('ERROR_RESET_MESSAGE', () => {
-    expect( actionTypes.ERROR_RESET_MESSAGE ).toBe('ERROR_RESET_MESSAGE')
+  it('ERRORS_RESET_MESSAGE', () => {
+    expect( actionTypes.ERRORS_RESET_MESSAGE ).toBe('ERRORS_RESET_MESSAGE')
   })
 
   it('UI_SELECT_TAB', () => {

@@ -39,9 +39,9 @@ export const currenciesRequest = () => {
   }
 }
 
-export const errorResetMessage = () => {
+export const errorsResetMessage = () => {
   return {
-    type: actionTypes.ERROR_RESET_MESSAGE
+    type: actionTypes.ERRORS_RESET_MESSAGE
   }
 }
 

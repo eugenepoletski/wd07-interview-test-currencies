@@ -1,6 +1,6 @@
-import {mapCurrenciesRates} from './mappers'
+import {mapCurrenciesData} from './mappers'
 
-describe('Mappers', () => {
+describe('Mappers: mapCurrenciesData', () => {
   const textData = '<ValCurs Date="26.10.2017" name="Foreign Currency Market">'
   + '<Valute ID="R01010">'
   + '<NumCode>036</NumCode>'
@@ -18,11 +18,11 @@ describe('Mappers', () => {
   + '</Valute>'
 
   it('MUST BE a function', () => {
-    expect(mapCurrenciesRates).toBeInstanceOf(Function)
+    expect(mapCurrenciesData).toBeInstanceOf(Function)
   })
 
   it('MUST map data correctly', () => {
-    expect(mapCurrenciesRates(textData))
+    expect(mapCurrenciesData(textData))
     .toEqual({
       R01010: {
         charCode: 'AUD',

@@ -3,7 +3,7 @@ import {
   currenciesFetchFail,
   currenciesReceive,
   currenciesRequest,
-  errorResetMessage,
+  errorsResetMessage,
   uiSelectTab
 } from './index.js'
 
@@ -39,10 +39,10 @@ describe('Actions MUST create actions properly', ()=> {
     })
   })
 
-  it('errorResetMessage()', () => {
-    expect( errorResetMessage() )
+  it('errorsResetMessage()', () => {
+    expect( errorsResetMessage() )
     .toEqual({
-      type: actionTypes.ERROR_RESET_MESSAGE
+      type: actionTypes.ERRORS_RESET_MESSAGE
     })
   })
 
