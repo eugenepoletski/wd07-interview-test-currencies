@@ -1,17 +1,23 @@
 import { connect } from 'react-redux'
-import { currenciesFetch } from '../../actions/index'
+import {
+  currenciesFetch,
+  uiSelectTab
+} from '../../actions/index'
 import Currencies from './Currencies'
 
 const mapStateToProps = state => {
   return {
+    isFetching: state.currencies.isFetching,
     currencies: state.currencies.byIds,
-    lastUpdated: state.currencies.lastUpdated
+    lastUpdated: state.currencies.lastUpdated,
+    selectedTabId: state.ui.selectedTabId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCurrenciesIfNeeded: () => dispatch( currenciesFetch() )
+    fetchCurrenciesIfNeeded: () => dispatch( currenciesFetch() ),
+    handleTabClick: tabId => dispatch( uiSelectTab(tabId) )
   }
 }
 

@@ -11,7 +11,7 @@ describe('Actions MUST create actions properly', ()=> {
   it('currenciesFetchFail()', () => {
     expect( currenciesFetchFail(new Error('Error text')) )
     .toMatchObject({
-      type: actionTypes.CURRENCIES_FETCH_FAIL,
+      type: 'CURRENCIES_FETCH_FAIL',
       payload: expect.any(Object),
       error: true
     })
@@ -22,7 +22,7 @@ describe('Actions MUST create actions properly', ()=> {
     
     expect( action )
     .toMatchObject({
-      type: actionTypes.CURRENCIES_RECEIVE,
+      type: 'CURRENCIES_RECEIVE',
       payload: {
         currencies: expect.any(Object),
         lastUpdated: expect.any(Number)
@@ -35,21 +35,21 @@ describe('Actions MUST create actions properly', ()=> {
   it('currenciesRequest()', () => {
     expect( currenciesRequest() )
     .toEqual({
-      type: actionTypes.CURRENCIES_REQUEST
+      type: 'CURRENCIES_REQUEST'
     })
   })
 
   it('errorsResetMessage()', () => {
     expect( errorsResetMessage() )
     .toEqual({
-      type: actionTypes.ERRORS_RESET_MESSAGE
+      type: 'ERRORS_RESET_MESSAGE'
     })
   })
 
   it('uiSelectTab()', () => {
     expect( uiSelectTab('rates') )
     .toEqual({
-      type: actionTypes.UI_SELECT_TAB,
+      type: 'UI_SELECT_TAB',
       payload: 'rates'
     })
   })

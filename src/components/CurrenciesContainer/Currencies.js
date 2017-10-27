@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Converter from './Converter/Converter'
+import Rates from './Rates/Rates'
+import TabsControl from './TabsControl/TabsControl'
 
 const defaultProps = {
   currencies: {},
@@ -18,6 +21,7 @@ const propTypes = {
     })
   ).isRequired,
   fetchCurrenciesIfNeeded: PropTypes.func.isRequired,
+  handleTabClick: PropTypes.func.isRequired,
   lastUpdated: PropTypes.number.isRequired,
   selectedTabId: PropTypes.string.isRequired
 }
@@ -28,42 +32,42 @@ class Currencies extends Component {
   }
 
   render() {
-    const props = this.props,
-      selectedTabId = props.selectedTabId
-      
-    let currencies = []
+    const {
+      isFetching,
+      handleTabClick,
+      lastUpdated,
+      selectedTabId
+    } = this.props
 
-    for (let currencyId in props.currencies) {
-      currencies.push({
-        id: currencyId,
-        attributes: props.currencies[ currencyId ]
-      })
+    if (isFetching && lastUpdated === 0) {
+      return (
+        <div>Loading currencies...</div>
+      )
     }
 
-    currencies.sort( (a, b) => {
-      return a.attributes.charCode > b.attributes.charCode ? 1 : -1
-    })
+    const tabs = ['rates', 'converter']
 
-    currencies = currencies.map( currency => {
-      const attributes = currency.attributes
-      return (
-        <tr key={currency.id}>
-          <td>{attributes.charCode}</td>
-          <td>{attributes.name}</td>
-          <td>{attributes.nominal}</td>
-          <td>{attributes.valueChar}</td>
-        </tr>
-      )
-    })
+    const TabComponent = () => {
+      switch (selectedTabId) {
+        case 'converter':
+          return (
+            <Converter />
+          )
+        case 'rates':
+          return (
+            <Rates />
+          )
+        default:
+          return (
+            <Rates />
+          )
+      }
+    } 
 
     return (
       <div>
-        <div>Currencies</div>
-        <table>
-          <tbody>
-            {currencies}
-          </tbody>
-        </table>
+        <TabsControl tabs={tabs} handleTabClick={handleTabClick} />
+        <TabComponent />
       </div>
     )
   }
