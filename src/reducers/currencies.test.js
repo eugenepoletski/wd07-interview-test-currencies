@@ -16,7 +16,25 @@ describe('Reducers: currencies', () => {
     .toEqual({isFetching: false})
   })
 
-  it('MUST save currencies and update state on receive', () => {
+  it('MUST set state to "fetching" status on request', () => {
+    expect(
+      currencies(
+        {
+          isFetching: false,
+          lastUpdated: 0
+        },
+        {
+          type: actionTypes.CURRENCIES_REQUEST
+        }
+      )
+    )
+    .toEqual({
+      isFetching: true,
+      lastUpdated: 0
+    })
+  })
+
+  it('MUST save currencies and update state on request success', () => {
     const lastUpdated = Date.now()
 
     expect(
@@ -44,21 +62,24 @@ describe('Reducers: currencies', () => {
     })
   })
 
-  it('MUST set state to "fetching" status on request', () => {
+  it('MUST end "fetching" state and inform about errors on request failure', () => {
     expect(
       currencies(
         {
-          isFetching: false,
-          lastUpdated: 0
+          isFetching: true,
+          lastUpdated: 16384
         },
         {
-          type: actionTypes.CURRENCIES_REQUEST
+          type: actionTypes.CURRENCIES_FETCH_FAIL,
+          payload: new Error('Error'),
+          error: true
         }
       )
     )
     .toEqual({
-      isFetching: true,
-      lastUpdated: 0
+      isFetching: false,
+      lastUpdated: 16384
     })
   })
+
 })

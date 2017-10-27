@@ -6,8 +6,8 @@ import convert from 'xml-js'
  * @param {String} textData
  * @return {Object} mappedData Currencies rates data
  */
-export const mapCurrenciesRates = textData => {
-  const objData = convert.xml2js(textData, {compact: true}),
+export const mapCurrenciesData = textData => {
+    const objData = convert.xml2js(textData, {compact: true}),
     currencies = objData.ValCurs.Valute,
     mappedData = {}
 

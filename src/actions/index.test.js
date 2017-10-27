@@ -1,14 +1,20 @@
 import actionTypes from './actionTypes'
 import {
-  currenciesFetch,
+  currenciesFetchFail,
   currenciesReceive,
   currenciesRequest,
+  errorResetMessage,
   uiSelectTab
 } from './index.js'
 
 describe('Actions MUST create actions properly', ()=> {
-  it('currenciesFetch()', () => {
-    expect( currenciesFetch() ).toBeInstanceOf(Function)
+  it('currenciesFetchFail()', () => {
+    expect( currenciesFetchFail(new Error('Error text')) )
+    .toMatchObject({
+      type: actionTypes.CURRENCIES_FETCH_FAIL,
+      payload: expect.any(Object),
+      error: true
+    })
   })
 
   it('currenciesReceive()', () => {
@@ -30,6 +36,13 @@ describe('Actions MUST create actions properly', ()=> {
     expect( currenciesRequest() )
     .toEqual({
       type: actionTypes.CURRENCIES_REQUEST
+    })
+  })
+
+  it('errorResetMessage()', () => {
+    expect( errorResetMessage() )
+    .toEqual({
+      type: actionTypes.ERROR_RESET_MESSAGE
     })
   })
 

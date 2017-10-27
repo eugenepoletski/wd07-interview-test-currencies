@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import {mapCurrenciesRates} from './mappers'
+import {mapCurrenciesData} from './mappers'
 
 const api = {}
 
@@ -13,24 +13,29 @@ const fetchCurrencies = () => {
   .then( currenciesData => {
     // Throw exception when data was not provided
     if (!currenciesData) {
-      throw new Error('No currencies data provided from server')
+      throw new Error('Empty currencies data received')
     }
-    return mapCurrenciesRates( currenciesData )
+    try {
+      return mapCurrenciesData( currenciesData )
+    }
+    catch(err) {
+      throw new Error('Error mapping received currencies data: ' + err)
+    }
   })
 }
 
 /**
  * Fetch currencies data from service provider
  * 
- * @param {String} url our server api url
- * @return {String} Currencies data
+ * @param {String} url our server api url (for proxying requests)
+ * @return {String} Currencies data in text format
  */
 const _fetchCurrencies = url => {
   return fetch(url)
     .then(
       res => {
         if (res.status !== 200) {
-          throw new Error('Error fetching currencies from: ' + url)
+          throw new Error('Network error fetching currencies from: ' + url)
         }
         // Convert ReadableStream to text and return
         return res.text()
@@ -38,6 +43,6 @@ const _fetchCurrencies = url => {
     )
 }
 
-api.fetchCurrencies = fetchCurrencies;
+api.fetchCurrencies = fetchCurrencies
 
-export default api;
+export default api
