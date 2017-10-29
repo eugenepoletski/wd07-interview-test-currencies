@@ -4,11 +4,20 @@ const initialState = {
     isFetching: false,
     lastUpdated: 0,
     updateInterval: 60000,
-    byIds: {}
+    byIds: {
+      R0: {
+        charCode: 'RUB',
+        name: 'Russian Rouble',
+        nominal: '1',
+        numCode: '1',
+        valueNum: 1.0000,
+        valueChar: '1,0000'
+      }
+    }
   },
   converter: {
-    baseCurrencyId: '',
-    amount: 0, 
+    baseCurrencyId: 'R0',
+    amount: 1, 
     selectedByIds: {}
   },
   errors: {

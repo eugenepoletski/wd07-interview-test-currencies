@@ -10,7 +10,7 @@ const currencies = (state = {}, action) => {
       {
         isFetching: false,
         lastUpdated: action.payload.lastUpdated,
-        byIds: action.payload.currencies
+        byIds: Object.assign({}, state.byIds, action.payload.currencies)
       })
       
     case actionTypes.CURRENCIES_REQUEST:
