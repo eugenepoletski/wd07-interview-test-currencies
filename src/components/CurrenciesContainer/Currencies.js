@@ -17,6 +17,7 @@ const propTypes = {
       name: PropTypes.string.isRequired,
       nominal: PropTypes.string.isRequired,
       numCode: PropTypes.string.isRequired,
+      valueChar: PropTypes.string.isRequired,
       valueNum: PropTypes.number.isRequired
     })
   ).isRequired,
@@ -33,6 +34,7 @@ class Currencies extends Component {
 
   render() {
     const {
+      currencies,
       isFetching,
       handleTabClick,
       lastUpdated,
@@ -55,11 +57,11 @@ class Currencies extends Component {
           )
         case 'rates':
           return (
-            <Rates />
+            <Rates currencies={currencies} />
           )
         default:
           return (
-            <Rates />
+            <Rates currencies={currencies} />
           )
       }
     } 
