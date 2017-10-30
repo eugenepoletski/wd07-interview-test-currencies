@@ -2,11 +2,11 @@ import actionTypes from '../actions/actionTypes'
 import ui from './ui'
 
 describe('Reducers: ui', () => {
-  it('MUST BE a function', () => {
+  it('Should BE a function', () => {
     expect(ui).toBeInstanceOf(Function);
   })
 
-  it('MUST return state for unknown action', () => {
+  it('Should return state for unknown action', () => {
     expect(
       ui(
         {selectedTabId: ''},
@@ -16,7 +16,7 @@ describe('Reducers: ui', () => {
     .toEqual({selectedTabId: ''})
   })
 
-  it('MUST change selected tab', () => {
+  it('Should change selected tab', () => {
     expect(
       ui(
         {selectedTabId: ''},

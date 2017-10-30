@@ -2,11 +2,11 @@ import actionTypes from '../actions/actionTypes'
 import currencies from './currencies'
 
 describe('Reducers: currencies', () => {
-  it('MUST BE a function', () => {
+  it('Should BE a function', () => {
     expect(currencies).toBeInstanceOf(Function);
   })
 
-  it('MUST return state for unknown action', () => {
+  it('Should return state for unknown action', () => {
     expect(
       currencies(
         {isFetching: false},
@@ -16,7 +16,7 @@ describe('Reducers: currencies', () => {
     .toEqual({isFetching: false})
   })
 
-  it('MUST set state to "fetching" status on request', () => {
+  it('Should set state to "fetching" status on request', () => {
     expect(
       currencies(
         {
@@ -34,7 +34,7 @@ describe('Reducers: currencies', () => {
     })
   })
 
-  it('MUST save currencies and update state on request success', () => {
+  it('Should save currencies and update state on request success', () => {
     const lastUpdated = Date.now()
 
     expect(
@@ -62,7 +62,7 @@ describe('Reducers: currencies', () => {
     })
   })
 
-  it('MUST end "fetching" state and inform about errors on request failure', () => {
+  it('Should end "fetching" state and inform about errors on request failure', () => {
     expect(
       currencies(
         {

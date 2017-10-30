@@ -1,7 +1,7 @@
 import index from './index';
 
 describe('Reducers: Root', () => {
-  it('MUST BE a function', () => {
+  it('Should BE a function', () => {
     expect(index).toBeInstanceOf(Function);
   });
 });

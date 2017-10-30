@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import CurrencyList from './CurrencyList'
 
 describe('Components: <CurrencyList />', () => {
-  it('MUST render without crashing', () => {
+  it('Should render without crashing', () => {
     const currencyListComponent = shallow(<CurrencyList/>)
   })
 })

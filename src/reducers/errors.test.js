@@ -2,11 +2,11 @@ import actionTypes from '../actions/actionTypes'
 import errors from './errors'
 
 describe('Reducers: errors', () => {
-  it('MUST be a function', () => {
+  it('Should be a function', () => {
     expect(errors).toBeInstanceOf(Function)
   })
 
-  it('MUST return state for actions without errors', () => {
+  it('Should return state for actions without errors', () => {
     expect(
       errors(
         {
@@ -24,7 +24,7 @@ describe('Reducers: errors', () => {
     })
   })
 
-  it('MUST return state for actions with error set improperly', () => {
+  it('Should return state for actions with error set improperly', () => {
     expect(
       errors(
         {
@@ -43,7 +43,7 @@ describe('Reducers: errors', () => {
       })
   })
 
-  it('MUST store error for actions with error set properly', () => {
+  it('Should store error for actions with error set properly', () => {
     const err = new Error('Error message')
 
     expect(
@@ -65,7 +65,7 @@ describe('Reducers: errors', () => {
     })
   })
 
-  it('MUST reset error on demand', () => {
+  it('Should reset error on demand', () => {
     expect(
       errors(
         {

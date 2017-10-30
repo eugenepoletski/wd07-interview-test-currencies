@@ -18,7 +18,7 @@ const initialState = {
   converter: {
     baseCurrencyId: 'R0',
     amount: 1, 
-    selectedByIds: {}
+    selectedByIds: []
   },
   errors: {
     message: '',

@@ -16,14 +16,14 @@ const setup = () => {
 }
 
 describe('Components: <Currencies />', () => {
-  it('MUST render self and subcomponents without crashing', () => {
+  it('Should render self and subcomponents without crashing', () => {
     const { enzymeWrapper } = setup()
 
     expect( enzymeWrapper.containsAnyMatchingElements(['Rates', 'Converter']) )
     .toBe(true)
   })
 
-  it('MUST call fetchCurrenciesIfNeeded() on mount', () => {
+  it('Should call fetchCurrenciesIfNeeded() on mount', () => {
     const { enzymeWrapper, props } = setup()
 
     expect(props.fetchCurrenciesIfNeeded.mock.calls.length).toBe(1)

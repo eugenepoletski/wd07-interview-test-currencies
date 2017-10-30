@@ -1,5 +1,9 @@
 import actionTypes from './actionTypes'
 import {
+  converterAddCurrency,
+  converterRemoveCurrency,
+  converterSelectBase,
+  converterSetBaseAmount,
   currenciesFetchFail,
   currenciesReceive,
   currenciesRequest,
@@ -7,7 +11,39 @@ import {
   uiSelectTab
 } from './index.js'
 
-describe('Actions MUST create actions properly', ()=> {
+describe('Actions Should create actions properly', ()=> {
+  it('converterAddBase()', () => {
+    expect( converterAddCurrency('USD') )
+    .toEqual({
+      type: 'CONVERTER_ADD_CURRENCY',
+      payload: 'USD'
+    })
+  })
+
+  it('converterRemoveBase()', () => {
+    expect( converterRemoveCurrency('USD') )
+    .toEqual({
+      type: 'CONVERTER_REMOVE_CURRENCY',
+      payload: 'USD'
+    })
+  })
+
+  it('converterSelectBase()', () => {
+    expect( converterSelectBase('USD') )
+    .toEqual({
+      type: 'CONVERTER_SELECT_BASE',
+      payload: 'USD'
+    })
+  })
+
+  it('converterSetBaseAmount()', () => {
+    expect( converterSetBaseAmount(100) )
+    .toEqual({
+      type: 'CONVERTER_SET_BASE_AMOUNT',
+      payload: 100
+    })
+  })
+
   it('currenciesFetchFail()', () => {
     expect( currenciesFetchFail(new Error('Error text')) )
     .toMatchObject({

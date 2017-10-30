@@ -17,11 +17,11 @@ describe('Mappers: mapCurrenciesData', () => {
   + '<Value>34,1315</Value>'
   + '</Valute>'
 
-  it('MUST BE a function', () => {
+  it('Should BE a function', () => {
     expect(mapCurrenciesData).toBeInstanceOf(Function)
   })
 
-  it('MUST map data correctly', () => {
+  it('Should map data correctly', () => {
     expect(mapCurrenciesData(textData))
     .toEqual({
       R01010: {

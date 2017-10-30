@@ -1,6 +1,34 @@
 import actionTypes from './actionTypes'
 import api from '../api/api'
 
+export const converterAddCurrency = currencyId => {
+  return {
+    type: actionTypes.CONVERTER_ADD_CURRENCY,
+    payload: currencyId
+  }
+}
+
+export const converterRemoveCurrency = currencyId => {
+  return {
+    type: actionTypes.CONVERTER_REMOVE_CURRENCY,
+    payload: currencyId
+  }
+}
+
+export const converterSelectBase = currencyId => {
+  return {
+    type: actionTypes.CONVERTER_SELECT_BASE,
+    payload: currencyId
+  }
+}
+
+export const converterSetBaseAmount = amount => {
+  return {
+    type: actionTypes.CONVERTER_SET_BASE_AMOUNT,
+    payload: amount
+  }
+}
+
 export const currenciesFetch = () => {
   return dispatch => {
     dispatch( currenciesRequest() )
