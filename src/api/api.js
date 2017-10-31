@@ -1,6 +1,8 @@
 import 'whatwg-fetch'
 import {mapCurrenciesData} from './mappers'
 
+import { currenciesMock } from './currencies.mock'
+
 const api = {}
 
 /**
@@ -31,6 +33,8 @@ const fetchCurrencies = () => {
  * @return {String} Currencies data in text format
  */
 const _fetchCurrencies = url => {
+  return _mockFetchCurrencies()
+
   return fetch(url)
     .then(
       res => {
@@ -41,6 +45,14 @@ const _fetchCurrencies = url => {
         return res.text()
       }
     )
+}
+
+const _mockFetchCurrencies = () => {
+  return new Promise( (resolve, reject) => {
+    setTimeout(() => {
+      resolve( currenciesMock )
+    }, 1000)
+  })
 }
 
 api.fetchCurrencies = fetchCurrencies

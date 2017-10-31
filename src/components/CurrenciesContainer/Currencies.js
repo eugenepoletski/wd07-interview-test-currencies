@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ConverterContainer from './ConverterContainer/ConverterContainer'
+import Converter from './Converter/Converter'
 import Rates from './Rates/Rates'
 import TabsControl from './TabsControl/TabsControl'
 
@@ -53,7 +53,7 @@ class Currencies extends Component {
       switch (selectedTabId) {
         case 'converter':
           return (
-            <ConverterContainer />
+            <Converter />
           )
         case 'rates':
           return (

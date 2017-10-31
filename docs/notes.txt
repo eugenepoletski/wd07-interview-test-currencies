@@ -1,0 +1,2 @@
+codeforprojects.slack.com
+https://github.com/codeforprojects/kaideals
