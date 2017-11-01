@@ -33,7 +33,7 @@ const fetchCurrencies = () => {
  * @return {String} Currencies data in text format
  */
 const _fetchCurrencies = url => {
-  return _mockFetchCurrencies()
+  // return _mockFetchCurrencies()
 
   return fetch(url)
     .then(

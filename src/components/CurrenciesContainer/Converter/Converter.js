@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AddCurrencyContainer from './AddCurrencyContainer/AddCurrencyContainer'
+import BaseCurrencyContainer from './BaseCurrencyContainer/BaseCurrencyContainer'
 import CurrencyListContainer from './CurrencyListContainer/CurrencyListContainer'
 
 const defaultProps = {}
@@ -10,8 +11,9 @@ const Converter = props => {
   return (
     <div>
       <div>Converter</div>
-      <AddCurrencyContainer />
+      <BaseCurrencyContainer />
       <CurrencyListContainer />
+      <AddCurrencyContainer />
     </div>
   )
 }
