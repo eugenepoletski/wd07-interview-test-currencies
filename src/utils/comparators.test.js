@@ -5,7 +5,7 @@ describe('Utilities: compareByPropAsc()', () => {
     expect( compareByPropAsc ).toBeInstanceOf(Function)
   })
 
-  it('Should compare two object properly', () => {
+  it('Should compare two objects properly', () => {
     expect(
       compareByPropAsc('charCode')(
         {charCode: "RUB", name: "Russian Rouble"},

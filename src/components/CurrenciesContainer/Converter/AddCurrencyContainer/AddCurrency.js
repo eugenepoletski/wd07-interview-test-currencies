@@ -8,6 +8,7 @@ const defaultProps = {
 }
 
 const propTypes = {
+  addCurrency: PropTypes.func.isRequired,
   currencies: PropTypes.array.isRequired
 }
 
@@ -20,7 +21,7 @@ class AddCurrency extends Component {
   handleAddClick() {
     if (this.state.selectValue === this._DEFAULT_) return
     this.setState({ selectValue: this._DEFAULT_ })
-    this.props.handleAddCurrency(this.state.selectValue)
+    this.props.addCurrency(this.state.selectValue)
   }
   
   handleSelect(evt) {

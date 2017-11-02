@@ -5,14 +5,17 @@ import AddCurrency from './AddCurrency'
 
 const getAvailableCurrencies = state => {
   const currencies = state.currencies.byIds,
+    baseCurrencyId = state.converter.baseCurrencyId,
     selectedIds = state.converter.selectedByIds,
     availableCurrencies = []
   
   for (let currencyId in currencies) {
     if (selectedIds.indexOf( currencyId ) < 0) {
-      const currency = currencies[ currencyId ]
-      currency.id = currencyId
-      availableCurrencies.push(currency)
+      if (currencyId !== baseCurrencyId) {
+        const currency = currencies[ currencyId ]
+        currency.id = currencyId
+        availableCurrencies.push(currency)
+      }
     }
   }
 
@@ -29,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleAddCurrency: currencyId => dispatch( converterAddCurrency(currencyId) )
+    addCurrency: currencyId => dispatch( converterAddCurrency(currencyId) )
   }
 }
 

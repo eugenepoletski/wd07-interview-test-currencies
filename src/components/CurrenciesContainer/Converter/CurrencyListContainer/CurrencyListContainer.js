@@ -13,23 +13,28 @@ const getSelectedCurrencies = state => {
     baseCurrencyRate = baseCurrency.valueNum,
     baseCurrencyNominal = Number(baseCurrency.nominal)
 
-  const selectCurrencies = selectIds.map( currencyId => {
-    const {
-      charCode,
-      name,
-      nominal,
-      valueNum
-    } = currencies[ currencyId ]
+  const selectCurrencies = selectIds
+    // exclude base currency id from the list
+    .filter( currenciId => currenciId !== baseCurrencyId )
+    // create corresponding currencies list
+    .map( currencyId => {
+      const {
+        charCode,
+        name,
+        nominal,
+        valueNum
+      } = currencies[ currencyId ]
 
-    const currencyAmount = baseCurrencyRate / baseCurrencyNominal * Number( nominal ) / valueNum * baseCurrencyAmount
+      const currencyAmount = baseCurrencyRate / baseCurrencyNominal * Number( nominal ) / valueNum * baseCurrencyAmount
 
-    return {
-      id: currencyId,
-      charCode,
-      name, 
-      amount: currencyAmount
+      return {
+        id: currencyId,
+        charCode,
+        name, 
+        amount: currencyAmount
+      }
     }
-  })
+  )
 
   selectCurrencies.sort(compareByPropAsc('charCode'))
 
