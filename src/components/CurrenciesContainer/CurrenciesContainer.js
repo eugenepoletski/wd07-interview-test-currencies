@@ -7,8 +7,8 @@ import Currencies from './Currencies'
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.currencies.isFetching,
     currencies: state.currencies.byIds,
+    isFetching: state.currencies.isFetching,
     lastUpdated: state.currencies.lastUpdated,
     selectedTabId: state.ui.selectedTabId
   }
