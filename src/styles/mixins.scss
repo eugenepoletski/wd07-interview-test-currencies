@@ -1,0 +1,7 @@
+@import './variables.scss';
+
+@mixin small {
+  @media screen and (max-width: #{$small-width}) {
+    @content;
+  }
+}

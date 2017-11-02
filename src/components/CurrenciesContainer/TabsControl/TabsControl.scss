@@ -1,7 +1,21 @@
 .tabs {
-
+  margin: 0 0 12px 0;
+  padding: 0;
+  background: #00bbd2;
 }
 
-.tab {
-  
+.tab,
+.selectedTab {
+  display: inline-block;
+  padding: 12px 8px;
+  width: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.selectedTab {
+  border-bottom: 2px solid #fc9ebd;
 }

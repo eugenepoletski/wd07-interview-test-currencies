@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import styles from './TabsControl.scss'
 
 const defaultProps = {
+  selectedTbaId: '',
   tabs: []
 }
 
 const propTypes = {
+  selectedTabId: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf( PropTypes.string.isRequired ).isRequired,
   handleTabClick: PropTypes.func.isRequired
 }
@@ -17,7 +19,7 @@ const TabsControl = props => {
     return (
       <li
         key={tab}
-        className={styles.tab}
+        className={tab !== props.selectedTabId ? styles.tab : styles.selectedTab}
         onClick={() => props.handleTabClick(tab)}>
         {text}
       </li>

@@ -68,7 +68,10 @@ class Currencies extends Component {
 
     return (
       <div>
-        <TabsControl tabs={tabs} handleTabClick={handleTabClick} />
+        <TabsControl
+          tabs={tabs}
+          handleTabClick={handleTabClick}
+          selectedTabId={selectedTabId}/>
         <TabComponent />
       </div>
     )

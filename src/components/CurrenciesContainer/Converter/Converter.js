@@ -10,7 +10,6 @@ const propTypes = {}
 const Converter = props => {
   return (
     <div>
-      <div>Converter</div>
       <BaseCurrencyContainer />
       <CurrencyListContainer />
       <AddCurrencyContainer />

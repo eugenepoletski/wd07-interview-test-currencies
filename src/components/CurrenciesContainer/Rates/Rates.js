@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CurrencyList from './CurrencyList'
-import Currency from './Currency'
+import CurrencyList from './CurrencyList/CurrencyList'
 
 const defaultProps = {
   currencies: {}
@@ -23,9 +22,7 @@ const propTypes = {
 const Rates = props => {
   return (
     <div>
-      <CurrencyList currencies={props.currencies}>
-        <Currency />
-      </CurrencyList>
+      <CurrencyList currencies={props.currencies} />
     </div>
   )
 }

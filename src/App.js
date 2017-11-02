@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './App.css';
+import styles from './App.scss';
 import CurrenciesContainer from './components/CurrenciesContainer/CurrenciesContainer'
 import ErrorsContainer from './components/ErrorsContainer/ErrorsContainer'
 
 const App = props => {
   return (
-    <div>
+    <div className={styles.container}>
       <ErrorsContainer />
       <CurrenciesContainer />
     </div>

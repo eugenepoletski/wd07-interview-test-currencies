@@ -1,0 +1,18 @@
+td {
+  font-family: 'Roboto', sans-serif;
+}
+
+.currency {
+  vertical-align: top;
+  &:nth-child(5n) > td {
+    border-bottom: 1px solid rgb(177, 176, 176);
+  }
+}
+
+.nominal {
+  text-align: center;
+}
+
+.value {
+  text-align: right;
+}

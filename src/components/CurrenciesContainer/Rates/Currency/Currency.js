@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './Currency.scss'
 
 const defaultProps = {
   charCode: '',
@@ -30,11 +31,11 @@ const Currency = props => {
   } = props
 
   return (
-    <tr>
+    <tr className={styles.currency}>
       <td>{charCode}</td>
       <td>{name}</td>
-      <td>{nominal}</td>
-      <td>{valueChar}</td>
+      <td className={styles.nominal}>{nominal}</td>
+      <td className={styles.value}>{valueChar}</td>
     </tr>
   )
 }

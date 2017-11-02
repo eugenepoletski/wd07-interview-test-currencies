@@ -25,7 +25,7 @@ const initialState = {
     error: false
   },
   ui: {
-    selectedTabId: ''
+    selectedTabId: 'rates'
   }
 }
 

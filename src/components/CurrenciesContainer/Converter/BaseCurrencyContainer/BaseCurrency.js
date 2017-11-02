@@ -21,7 +21,7 @@ class BaseCurrency extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isDropListVisible: true
+      isDropListVisible: false
     }
   }
 
