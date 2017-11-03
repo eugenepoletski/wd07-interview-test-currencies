@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styles from './BaseCurrency.scss'
 import BaseCurrencyDropList from './BaseCurrencyDropList/BaseCurrencyDropList'
 
 const defaultProps = {
@@ -27,6 +28,7 @@ class BaseCurrency extends Component {
 
   handleCurrencyClick(currencyId) {
     this.props.selectBase(currencyId)
+    this.setState({isDropListVisible: false})
   }
 
   handleDropListControlClick() {
@@ -37,19 +39,25 @@ class BaseCurrency extends Component {
     const props = this.props
 
     return (
-      <div>
-        <span>{props.charCode}</span>&nbsp;
-        <span>{props.name}</span>
-        
+      <div className={styles.container}>
         <span
+          className={styles.currency}
           onClick={() => this.handleDropListControlClick()}>
-          {this.state.isDropListVisible ? ( <i>&#9650;</i> ) : ( <i>&#9660;</i> )}
+          <span className={styles.code}>{props.charCode}</span>
+          <span className={styles.name}>{props.name}</span>
+          <span className={styles.icon}>&#9660;</span>
         </span>
         
         <input
+          className={styles.amount}
           type='number'
           defaultValue={props.amount}
-          onBlur={evt => props.setAmount(Number(evt.target.value))}/>
+          onBlur={evt => props.setAmount(Number(evt.target.value))}
+          onChange={evt => {
+            if (evt.target.value < 0) {
+              evt.target.value = 0
+            }
+          }}/>
         
         <BaseCurrencyDropList
           selectedCurrencyId={props.baseCurrencyId}

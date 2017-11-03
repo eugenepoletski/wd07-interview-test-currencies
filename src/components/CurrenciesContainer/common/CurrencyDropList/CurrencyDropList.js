@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './BaseCurrencyDropList.scss'
+import styles from './CurrencyDropList.scss'
 
 const defaultProps = {
   currencies: [],
@@ -20,7 +20,7 @@ const propTypes = {
   selectedCurrencyId: PropTypes.string.isRequired
 }
 
-const BaseCurrencyDropList = props => {
+const CurrencyDropList = props => {
   if (!props.isVisible) {
     return null
   }
@@ -46,7 +46,7 @@ const BaseCurrencyDropList = props => {
   )
 }
 
-BaseCurrencyDropList.defaultProps = defaultProps
-BaseCurrencyDropList.propTypes = propTypes
+CurrencyDropList.defaultProps = defaultProps
+CurrencyDropList.propTypes = propTypes
 
-export default BaseCurrencyDropList
+export default CurrencyDropList

@@ -1,0 +1,38 @@
+$secondaryDark: #dfdfdf;
+
+.container {
+  position: relative;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.currency {
+  margin-right: 8px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid $secondaryDark;
+  cursor: pointer;
+}
+
+.code {
+  padding-right: 12px;
+}
+
+.name {
+  padding-right: 8px;
+}
+
+.icon {
+  color: $secondaryDark;
+}
+
+.amount {
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  width: auto;
+  border-bottom: 1px solid $secondaryDark;
+  &:focus {
+    border-bottom: 1px solid #fc9ebd;
+  }
+}
