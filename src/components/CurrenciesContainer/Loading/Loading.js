@@ -13,7 +13,9 @@ const propTypes = {
 const Loading = props => {
   return (
     <div className={styles.container}>
-      <div className={styles.loading}>Loading currencies...</div>
+      <div className={styles.loader}>
+        <div className={styles.spinner}></div>
+      </div>
     </div>
   )
 }
