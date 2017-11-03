@@ -46,6 +46,15 @@ const CurrencyList = props => {
 
   return (
     <table className={styles.list}>
+      <thead>
+        <tr className={styles.head}>
+          <th>Numeral Code</th>
+          <th>Character Code</th>
+          <th>Name</th>
+          <th>Nominal</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
       <tbody>
         {currencies}
       </tbody>

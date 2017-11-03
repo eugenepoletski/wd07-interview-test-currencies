@@ -1,5 +1,5 @@
 /**
- * Compares two objects by a propperty
+ * Compare two objects by a propperty
  * 
  * @param {String} propName 
  * @param {String} order Can be 'asc' or 'dsc' 

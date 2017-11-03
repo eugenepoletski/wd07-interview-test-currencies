@@ -5,7 +5,7 @@ td {
 .currency {
   vertical-align: top;
   &:nth-child(5n) > td {
-    border-bottom: 1px solid rgb(177, 176, 176);
+    border-bottom: 1px solid #dfdfdf;
   }
 }
 

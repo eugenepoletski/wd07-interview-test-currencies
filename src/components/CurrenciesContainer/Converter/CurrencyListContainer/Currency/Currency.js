@@ -18,7 +18,9 @@ const propTypes = {
 }
 
 const Currency = props => {
-  const amount = parseFloat(Math.round(props.amount * 100) / 100).toFixed(2)
+  const amount = parseFloat(Math.round(props.amount * 100) / 100)
+    .toFixed(2)
+    .replace('.',',')
 
   return (
     <tr className={styles.currency}>

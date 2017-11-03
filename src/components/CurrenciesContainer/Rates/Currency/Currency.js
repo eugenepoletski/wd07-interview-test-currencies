@@ -32,6 +32,7 @@ const Currency = props => {
 
   return (
     <tr className={styles.currency}>
+      <td>{numCode}</td>
       <td>{charCode}</td>
       <td>{name}</td>
       <td className={styles.nominal}>{nominal}</td>
