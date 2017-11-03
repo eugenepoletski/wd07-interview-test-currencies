@@ -2,8 +2,9 @@
 const initialState = {
   currencies: {
     isFetching: false,
-    lastUpdated: 0,
-    updateInterval: 60000,
+    lastUpdated: '',
+    updateInterval: 15000,
+    updateTimer: null,
     byIds: {
       R0: {
         charCode: 'RUB',

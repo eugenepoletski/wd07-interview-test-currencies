@@ -35,13 +35,13 @@ describe('Reducers: currencies', () => {
   })
 
   it('Should save currencies and update state on request success', () => {
-    const lastUpdated = Date.now()
+    const lastUpdated = '22:30:35'
 
     expect(
       currencies(
         {
           isFetching: true,
-          lastUpdated: 0,
+          lastUpdated: '',
           byIds: {}
         },
         {
@@ -80,6 +80,51 @@ describe('Reducers: currencies', () => {
       isFetching: false,
       lastUpdated: 16384
     })
+  })
+
+  it('Should store update timer', () => {
+    const timer = setInterval(() => {}, 1000)
+
+    expect(
+      currencies({
+        updateTimer: null,
+        currencies: []
+      },
+      {
+        type: actionTypes.CURRENCIES_SCHEDULE_UPDATE,
+        payload: timer
+      })
+    )
+    .toEqual({
+      updateTimer: timer,
+      currencies: []
+    })
+  })
+
+  it('Should reset update timer', () => {
+    jest.useFakeTimers()
+
+    const callback = jest.fn(),
+      timer = setInterval(callback, 1000)
+
+    expect(
+      currencies({
+        updateTimer: timer,
+        currencies: []
+      },
+      {
+        type: actionTypes.CURRENCIES_RESET_UPDATE,
+        payload: timer
+      })
+    )
+    .toEqual({
+      updateTimer: null,
+      currencies: []
+    })
+
+    jest.runTimersToTime(1000)
+
+    expect(callback).not.toBeCalled()
   })
 
 })

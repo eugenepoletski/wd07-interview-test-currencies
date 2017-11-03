@@ -15,6 +15,18 @@ const currencies = (state = {}, action) => {
       
     case actionTypes.CURRENCIES_REQUEST:
       return Object.assign({}, state, { isFetching: true })
+
+    case actionTypes.CURRENCIES_RESET_UPDATE:
+      clearTimeout( state.updateTimer )
+      
+      return Object.assign({}, state, {
+        updateTimer: null
+      })
+
+    case actionTypes.CURRENCIES_SCHEDULE_UPDATE:
+      return Object.assign({}, state, {
+        updateTimer: action.payload
+      })
       
     default:
       return state

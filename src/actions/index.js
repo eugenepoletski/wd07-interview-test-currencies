@@ -52,11 +52,15 @@ export const currenciesFetchFail = err => {
 }
 
 export const currenciesReceive = currencies => {
+  const timeOffset = new Date().getTimezoneOffset(),
+    date = new Date( Date.now() - timeOffset * 60 ),
+    dateStr = date.toTimeString().split(' ', 1)[0]
+
   return {
     type: actionTypes.CURRENCIES_RECEIVE,
     payload: {
       currencies,
-      lastUpdated: Date.now()
+      lastUpdated: dateStr
     }
   }
 }
@@ -64,6 +68,19 @@ export const currenciesReceive = currencies => {
 export const currenciesRequest = () => {
   return {
     type: actionTypes.CURRENCIES_REQUEST
+  }
+}
+
+export const currenciesResetUpdate = () => {
+  return {
+    type: actionTypes.CURRENCIES_RESET_UPDATE
+  }
+}
+
+export const currenciesScheduleUpdate = timer => {
+  return {
+    type: actionTypes.CURRENCIES_SCHEDULE_UPDATE,
+    payload: timer
   }
 }
 

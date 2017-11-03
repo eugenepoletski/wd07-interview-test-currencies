@@ -7,6 +7,8 @@ import {
   currenciesFetchFail,
   currenciesReceive,
   currenciesRequest,
+  currenciesResetUpdate,
+  currenciesScheduleUpdate,
   errorsResetMessage,
   uiSelectTab
 } from './index.js'
@@ -61,7 +63,7 @@ describe('Actions Should create actions properly', ()=> {
       type: 'CURRENCIES_RECEIVE',
       payload: {
         currencies: expect.any(Object),
-        lastUpdated: expect.any(Number)
+        lastUpdated: expect.any(String)
       }
     })
 
@@ -72,6 +74,22 @@ describe('Actions Should create actions properly', ()=> {
     expect( currenciesRequest() )
     .toEqual({
       type: 'CURRENCIES_REQUEST'
+    })
+  })
+
+  it('currenciesResetUpdate()', () => {
+    expect( currenciesResetUpdate() )
+    .toEqual({
+      type: 'CURRENCIES_RESET_UPDATE'
+    })
+  })
+
+  it('currenciesScheduleUpdate()', () => {
+    const timer = setTimeout(() => {}, 1000)
+    expect( currenciesScheduleUpdate( timer ) )
+    .toEqual({
+      type: 'CURRENCIES_SCHEDULE_UPDATE',
+      payload: timer
     })
   })
 

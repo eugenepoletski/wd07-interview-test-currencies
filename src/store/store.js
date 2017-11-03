@@ -1,7 +1,8 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import app from '../reducers';
-import thunkMiddleware from 'redux-thunk';
-import initialState from './initialState';
+import { createStore, applyMiddleware, compose } from 'redux'
+import app from '../reducers'
+import thunkMiddleware from 'redux-thunk'
+import currenciesAutoUpdater from '../middleware/currenciesAutoUpdater'
+import initialState from './initialState'
 
 let store;
 
@@ -13,7 +14,8 @@ store = createStore(
   initialState,
   composeEnhancers(
     applyMiddleware(
-      thunkMiddleware
+      thunkMiddleware,
+      currenciesAutoUpdater
     )
   )
 );

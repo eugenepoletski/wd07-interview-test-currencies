@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Loading from './Loading/Loading'
 import Converter from './Converter/Converter'
+import CurrenciesUpdate from './CurrenciesUpdate/CurrenciesUpdate'
 import Rates from './Rates/Rates'
 import TabsControl from './TabsControl/TabsControl'
 
 const defaultProps = {
   currencies: {},
-  lastUpdated: 0,
+  lastUpdated: '',
   selectedTabId: 'rates'
 }
 
@@ -24,7 +25,7 @@ const propTypes = {
   ).isRequired,
   fetchCurrenciesIfNeeded: PropTypes.func.isRequired,
   handleTabClick: PropTypes.func.isRequired,
-  lastUpdated: PropTypes.number.isRequired,
+  lastUpdated: PropTypes.string.isRequired,
   selectedTabId: PropTypes.string.isRequired
 }
 
@@ -42,7 +43,7 @@ class Currencies extends Component {
       selectedTabId
     } = this.props
 
-    if (isFetching && lastUpdated === 0) {
+    if (isFetching && lastUpdated === '') {
       return (
         <Loading />
       )
@@ -50,22 +51,18 @@ class Currencies extends Component {
     
     const tabs = ['rates', 'converter']
 
-    const TabComponent = () => {
-      switch (selectedTabId) {
-        case 'converter':
-          return (
-            <Converter />
-          )
-        case 'rates':
-          return (
-            <Rates currencies={currencies} />
-          )
-        default:
-          return (
-            <Rates currencies={currencies} />
-          )
-      }
-    } 
+    let tabComponent = null
+
+    switch (selectedTabId) {
+      case 'converter':
+        tabComponent = <Converter />
+        break
+      case 'rates':
+        tabComponent = <Rates currencies={currencies} />
+        break
+      default:
+        tabComponent = <Rates currencies={currencies} />
+    }
 
     return (
       <div>
@@ -73,7 +70,10 @@ class Currencies extends Component {
           tabs={tabs}
           handleTabClick={handleTabClick}
           selectedTabId={selectedTabId}/>
-        <TabComponent />
+        <CurrenciesUpdate
+          isFetching={isFetching}
+          lastUpdated={lastUpdated}/>
+        {tabComponent}
       </div>
     )
   }
