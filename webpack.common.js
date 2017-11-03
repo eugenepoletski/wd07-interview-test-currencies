@@ -32,7 +32,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'bp-react-redux',
+      title: 'currencies rates and converter',
       template: 'src/index.template.ejs'
     })
   ]
