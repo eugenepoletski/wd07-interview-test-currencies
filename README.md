@@ -1,5 +1,8 @@
-# boilerplate-react-redux-jest
-Boilerplate for React applications with Redux for state management and Jest for testing
+# wd07-interview-test-currencies
+SPA (React + Redux) for retrieving currencies rates with convertor capabilities
+
+## Important note
+Due to the fact, that cbr.ru CORS headers are not set to grant required access, local proxy NodeJS server is used to bypass this limitation. This proxy is run with scripts `npm start` and `npm run server`
 
 ## Installation
 
@@ -9,23 +12,23 @@ $ mkdir project_folder_name
 ```
 2. clone repository to a project folder:
 ```
-$ git clone https://github.com/web-developer-poletski/boilerplate-react-redux-jest project_folder-name
+$ git clone https://github.com/web-developer-poletski/wd07-interview-test-currencies project_folder-name
 ```
 3. change to a project folder:
 ```
 $ cd project_folder_name
 ```
-4. remove existing git:
-```
-$ rm -r ./git
-```
-5. download node modules:
+4. download node modules:
 ```
 $ npm install
 ```
-6. update project description:
+5. run scripts
 ```
-$ npm init
+$ npm run script_name
+```
+or
+```
+$npm script_name
 ```
 ## Scripts
 |Command|Description|
