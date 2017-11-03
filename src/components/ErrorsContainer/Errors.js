@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './Errors.scss' 
 
 const defaultProps = {
   error: false,
@@ -18,9 +19,13 @@ const Errors = props => {
   }
 
   return (
-    <div>
-      <span>{props.message}</span>
-      <span onClick={props.resetError}>&#10006;</span>
+    <div className={styles.fade}>
+      <div className={styles.modal}>
+        <span>{props.message}</span>
+        <span
+          className={styles.close}
+          onClick={props.resetError}>&#10006;</span>
+      </div>
     </div>
   )
 }
