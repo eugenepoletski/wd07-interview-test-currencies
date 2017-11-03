@@ -18,12 +18,16 @@ const propTypes = {
 }
 
 const Currency = props => {
+  const amount = parseFloat(Math.round(props.amount * 100) / 100).toFixed(2)
+
   return (
     <tr className={styles.currency}>
       <td>{props.charCode}</td>
       <td>{props.name}</td>
-      <td>{props.amount}</td>
-      <td onClick={()=>props.handleRemoveCurrency(props.id)}>&#10006;</td>
+      <td className={styles.amount}>{amount}</td>
+      <td
+        className={styles.close}
+        onClick={()=>props.handleRemoveCurrency(props.id)}>&#10006;</td>
     </tr>
   )
 }

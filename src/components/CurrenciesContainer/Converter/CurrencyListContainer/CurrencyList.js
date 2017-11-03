@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Currency from './Currency/Currency'
+import styles from './CurrencyList.scss'
 
 const defaultProps = {
   currencies: []
@@ -23,7 +24,7 @@ const CurrencyList = props => {
   })
 
   return (
-    <table>
+    <table className={styles.list}>
       <tbody>
         {currencies}
       </tbody>

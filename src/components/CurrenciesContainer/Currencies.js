@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Loading from './Loading/Loading'
 import Converter from './Converter/Converter'
 import Rates from './Rates/Rates'
 import TabsControl from './TabsControl/TabsControl'
@@ -43,10 +44,10 @@ class Currencies extends Component {
 
     if (isFetching && lastUpdated === 0) {
       return (
-        <div>Loading currencies...</div>
+        <Loading />
       )
     }
-
+    
     const tabs = ['rates', 'converter']
 
     const TabComponent = () => {

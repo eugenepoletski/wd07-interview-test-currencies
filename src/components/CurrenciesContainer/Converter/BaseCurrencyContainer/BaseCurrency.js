@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './BaseCurrency.scss'
-import BaseCurrencyDropList from './BaseCurrencyDropList/BaseCurrencyDropList'
+import CurrencyDropList from '../../common/CurrencyDropList/CurrencyDropList'
 
 const defaultProps = {
   amount: 0,
@@ -59,7 +59,7 @@ class BaseCurrency extends Component {
             }
           }}/>
         
-        <BaseCurrencyDropList
+        <CurrencyDropList
           selectedCurrencyId={props.baseCurrencyId}
           currencies={props.currencies}
           isVisible={this.state.isDropListVisible}

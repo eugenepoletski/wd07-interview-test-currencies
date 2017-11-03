@@ -4,7 +4,8 @@ import styles from './CurrencyDropList.scss'
 
 const defaultProps = {
   currencies: [],
-  isVisible: false
+  isVisible: false,
+  selectedCurrencyId: ''
 }
 
 const propTypes = {
@@ -40,9 +41,11 @@ const CurrencyDropList = props => {
   })
   
   return (
-    <ul className={styles.list}>
-      {currencies}
-    </ul>
+    <div className={styles.container}>
+      <ul className={styles.list}>
+        {currencies}
+      </ul>
+    </div>
   )
 }
 

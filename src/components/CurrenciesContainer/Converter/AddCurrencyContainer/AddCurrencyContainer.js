@@ -26,6 +26,7 @@ const getAvailableCurrencies = state => {
 
 const mapStateToProps = state => {
   return {
+    baseCurrencyId: state.converter.baseCurrencyId,
     currencies: getAvailableCurrencies(state)
   }
 }

@@ -2,67 +2,53 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { compareByPropAsc } from '../../../../utils/comparators'
 import styles from './AddCurrency.scss'
+import CurrencyDropList from '../../common/CurrencyDropList/CurrencyDropList'
 
 const defaultProps = {
+  baseCurrencyId: '',
   currencies: []
 }
 
 const propTypes = {
   addCurrency: PropTypes.func.isRequired,
+  baseCurrencyId: PropTypes.string.isRequired,
   currencies: PropTypes.array.isRequired
 }
 
 class AddCurrency extends Component {
   constructor(props) {
     super(props)
-    this.state = { selectValue: this._DEFAULT_ }
+    this.state = {
+      isCurrencyDropListVisible: false,
+    }
   }
 
   handleAddClick() {
-    if (this.state.selectValue === this._DEFAULT_) return
-    this.setState({ selectValue: this._DEFAULT_ })
-    this.props.addCurrency(this.state.selectValue)
-  }
-  
-  handleSelect(evt) {
-    this.setState({ selectValue: evt.target.value })
+    this.setState({
+      isCurrencyDropListVisible: true
+    })
   }
 
-  get _DEFAULT_() {
-    return '__default__'
+  handleCurrencyClick(currencyId) {
+    this.props.addCurrency(currencyId)
+    this.setState({ isCurrencyDropListVisible: false })
   }
 
   render() {
     const props = this.props
-
-    const options = props.currencies
-      .sort( compareByPropAsc('charCode') )
-      .map( currency => {
-      return (
-        <option
-          key={currency.id}
-          value={currency.id}>
-          {currency.charCode}&nbsp;&nbsp;&nbsp;{currency.name}
-        </option>
-      )
-    })
-
-    options.unshift(
-      <option
-        className={styles.option}
-        key={this._DEFAULT_}
-        value={this._DEFAULT_}>
-        --- select currency to add ---
-        </option>)
   
     return (
-      <div>
-        <select
-          className={styles.select}
-          onChange={(evt) => this.handleSelect(evt)}>
-          {options}
-        </select>
-        <span onClick={() => this.handleAddClick()}>&#10133;</span>
+      <div className={styles.container}>
+        <CurrencyDropList
+          currencies={props.currencies.sort( compareByPropAsc('charCode') )}
+          isVisible={this.state.isCurrencyDropListVisible}
+          handleCurrencyClick={currencyId => this.handleCurrencyClick(currencyId)}
+          selectedCurrencyId=''/>
+        <span
+          className={styles.add}
+          onClick={() => this.handleAddClick()}>
+          Add currency
+        </span>
       </div>
     )
   }
